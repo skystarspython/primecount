@@ -29,6 +29,10 @@ jobs:
             grep "^int128.*:INTERNAL=1$" CMakeCache.txt
             grep "^cpu_supports_popcnt:INTERNAL=1$" CMakeCache.txt
             make -j2 VERBOSE=1
+      - uses: actions/upload-artifact@v3	
+        with:	
+          name: primecount
+          path: primecount*
       # The current MinGW/GCC-12.1 version miscompiles primesieve/primecount,
       # many tests fail with an exception thrown.
       #- name: CTest (unit tests)
